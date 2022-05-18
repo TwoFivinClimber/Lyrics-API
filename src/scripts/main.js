@@ -33,7 +33,7 @@ const subEvent = () => {
   const songInput = document.getElementById('songInput');
   document.querySelector('#form').addEventListener('submit', (e) => {
     if (e.target.id === 'submit') {
-      console.error('button clicked');
+      console.warn('button clicked');
       const artist = artistInput.value;
       const song = songInput.value;
       getLyrics(artist, song).then((response) => {
