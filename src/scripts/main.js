@@ -17,7 +17,7 @@ const renderToDom = (divId, textToRender) => {
 };
 
 const renderForm = () => {
-  let domString = '<h1>FIND YOUR SONG LYRICS</H1>';
+  let domString = '<h1>Drop in a Song, Get them Lyrics</H1>';
   domString += `<form id="form" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Artist</label>
   <input type="text" class="inpFrm form-control" id="artistInput" placeholder="Snoop Dogg">
@@ -40,12 +40,15 @@ const subEvent = () => {
     e.preventDefault();
     const artist = document.querySelector('#artistInput').value;
     const song = document.querySelector('#songInput').value;
+    let domString = `<h2>${artist}</h2><h5>"${song}"</h5>`;
+    document.getElementById('form').reset();
     getLyrics(artist, song).then((response) => {
-      let domString = `<h2>${artist}</h2><h5>"${song}"</h5>`;
       domString += response.lyrics;
       renderToDom('#lyrics', domString);
+    }).catch(() => {
+      domString += '<h4 class="errMs">Error: Not Found</h4>';
+      renderToDom('#lyrics', domString);
     });
-    document.getElementById('form').reset();
   });
 };
 
