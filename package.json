@@ -9,7 +9,7 @@
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
+  "author": "Brett Hughes",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.2.0",
