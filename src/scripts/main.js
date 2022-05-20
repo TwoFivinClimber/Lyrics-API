@@ -46,7 +46,7 @@ const subEvent = () => {
       domString += response.lyrics;
       renderToDom('#lyrics', domString);
     }).catch(() => {
-      domString += '<h4 class="errMs">Error: Not Found</h4>';
+      domString += '<h4 class="errMs">Song/Artist Not Found</h4>';
       renderToDom('#lyrics', domString);
     });
   });
